@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="41" height="70" viewBox="0 0 41 70">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        isolation: isolate;
+        clip-path: url(#clip-path);
+      }
+
+      .cls-3 {
+        fill: #464e57;
+        stroke: #707070;
+      }
+
+      .cls-4 {
+        stroke: none;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect class="cls-1" x="40" width="41" height="70"/>
+    </clipPath>
+  </defs>
+  <g id="Scroll_Group_2" data-name="Scroll Group 2" class="cls-2" transform="translate(-40)">
+    <g id="Ellipse_6" data-name="Ellipse 6" class="cls-3">
+      <circle class="cls-4" cx="40.5" cy="40.5" r="40.5"/>
+      <circle class="cls-1" cx="40.5" cy="40.5" r="40"/>
+    </g>
+  </g>
+</svg>

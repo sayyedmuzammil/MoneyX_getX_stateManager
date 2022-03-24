@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="412" height="870" viewBox="0 0 412 870">
+  <defs>
+    <filter id="Rectangle_7" x="6" y="84" width="400" height="709" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#5b6374"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-Sign_Up_">
+      <rect width="412" height="870"/>
+    </clipPath>
+  </defs>
+  <g id="Sign_Up_" data-name="Sign Up " clip-path="url(#clip-Sign_Up_)">
+    <rect width="412" height="870" fill="#fff"/>
+    <g id="Rectangle_6" data-name="Rectangle 6" transform="translate(-5 -26)" fill="rgba(115,189,197,0.9)" stroke="#707070" stroke-width="1">
+      <rect width="428" height="898" stroke="none"/>
+      <rect x="0.5" y="0.5" width="427" height="897" fill="none"/>
+    </g>
+    <g id="Ellipse_4" data-name="Ellipse 4" transform="translate(-86 -348)" fill="#464e57" stroke="#707070" stroke-width="1">
+      <circle cx="258" cy="258" r="258" stroke="none"/>
+      <circle cx="258" cy="258" r="257.5" fill="none"/>
+    </g>
+    <g id="Ellipse_5" data-name="Ellipse 5" transform="translate(133 594)" fill="#464e57" stroke="#707070" stroke-width="1">
+      <circle cx="129" cy="129" r="129" stroke="none"/>
+      <circle cx="129" cy="129" r="128.5" fill="none"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Rectangle_7)">
+      <g id="Rectangle_7-2" data-name="Rectangle 7" transform="translate(21 96)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="370" height="679" rx="40" stroke="none"/>
+        <rect x="0.5" y="0.5" width="369" height="678" rx="39.5" fill="none"/>
+      </g>
+    </g>
+    <g id="Rectangle_5" data-name="Rectangle 5" transform="translate(66 459)" fill="#464e57" stroke="#707070" stroke-width="1">
+      <rect width="278" height="59" rx="29.5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="277" height="58" rx="29" fill="none"/>
+    </g>
+    <g id="Ellipse_6" data-name="Ellipse 6" transform="translate(-40 800)" fill="#464e57" stroke="#707070" stroke-width="1">
+      <circle cx="40.5" cy="40.5" r="40.5" stroke="none"/>
+      <circle cx="40.5" cy="40.5" r="40" fill="none"/>
+    </g>
+    <g id="Rectangle_4" data-name="Rectangle 4" transform="translate(66 161)" fill="none" stroke="rgba(112,112,112,0.5)" stroke-width="1">
+      <rect width="153" height="40" rx="20" stroke="none"/>
+      <rect x="0.5" y="0.5" width="152" height="39" rx="19.5" fill="none"/>
+    </g>
+    <text id="Log_In" data-name="Log In" transform="translate(119 186)" fill="#464e57" font-size="17" font-family="Nunito-SemiBold, Nunito" font-weight="600"><tspan x="0" y="0">Log In</tspan></text>
+    <g id="Rectangle_3" data-name="Rectangle 3" transform="translate(193 161)" fill="#464e57" stroke="rgba(112,112,112,0.5)" stroke-width="1">
+      <rect width="153" height="40" rx="20" stroke="none"/>
+      <rect x="0.5" y="0.5" width="152" height="39" rx="19.5" fill="none"/>
+    </g>
+    <text id="Sign_Up" data-name="Sign Up" transform="translate(239 186)" fill="#fff" font-size="17" font-family="Nunito-SemiBold, Nunito" font-weight="600"><tspan x="0" y="0">Sign Up</tspan></text>
+    <g id="Group_5" data-name="Group 5" transform="translate(0 9)">
+      <line id="Line_1" data-name="Line 1" x2="280" transform="translate(66.5 274.5)" fill="none" stroke="#707070" stroke-width="1" opacity="0.33"/>
+      <text id="Enter_email_or_username" data-name="Enter email or username" transform="translate(66 267)" fill="#464e57" font-size="15" font-family="Nunito-SemiBold, Nunito" font-weight="600" style="mix-blend-mode: hard-light;isolation: isolate"><tspan x="0" y="0">Enter email or username</tspan></text>
+      <line id="Line_2" data-name="Line 2" x2="280" transform="translate(66.5 327.5)" fill="none" stroke="#707070" stroke-width="1" opacity="0.33"/>
+      <text id="New_Password" data-name="New Password" transform="translate(66 320)" fill="#464e57" font-size="15" font-family="Nunito-SemiBold, Nunito" font-weight="600" style="mix-blend-mode: hard-light;isolation: isolate"><tspan x="0" y="0">New Password</tspan></text>
+      <line id="Line_3" data-name="Line 3" x2="280" transform="translate(66.5 380.5)" fill="none" stroke="#707070" stroke-width="1" opacity="0.33"/>
+      <text id="Confirm_Password" data-name="Confirm Password" transform="translate(66 373)" fill="#464e57" font-size="15" font-family="Nunito-SemiBold, Nunito" font-weight="600" style="mix-blend-mode: hard-light;isolation: isolate"><tspan x="0" y="0">Confirm Password</tspan></text>
+    </g>
+    <g id="Group_7" data-name="Group 7" transform="translate(3.833 3.5)">
+      <text id="Sign_Up-2" data-name="Sign Up" transform="translate(193 493)" fill="#fff" font-size="24" font-family="Nunito-SemiBold, Nunito" font-weight="600"><tspan x="0" y="0">Sign Up</tspan></text>
+      <image id="Layer_1" data-name="Layer 1" width="50.667" height="24" transform="translate(122.333 473)" xlink:href="data:image/png;base64,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"/>
+    </g>
+  </g>
+</svg>
