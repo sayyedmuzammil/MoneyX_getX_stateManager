@@ -2,7 +2,6 @@
 
 import 'package:get/get.dart';
 import 'package:money_management/db_functions/db_functions.dart';
-import 'package:money_management/db_functions/listModel.dart';
 
 final db_control = Get.put(Controller());
 final dataControl = Get.put(getXcontrol());
@@ -22,10 +21,9 @@ class getXcontrol extends GetxController {
   var card = 0;
   var cardList = 0.obs;
   Map<String, Object?> selectedcontent = {};
-  var addButton = false;
+  var addButton = false.obs;
   var currentIndex = Rxn<int?>();
   bool percentInd = false;
-
   var selectedStartDate;
   var selectedEndDate;
   var startText;
@@ -34,9 +32,9 @@ class getXcontrol extends GetxController {
   bool overall = false;
   var isClicked = false.obs;
   Future<void> pie_chart_controller(_card) async {
-    dataMap={};
+    dataMap = {};
     favoriteVisible = false;
-    addButton = false;
+    addButton.value = false;
     percentInd = false;
     cardList.value = _card;
     percentInd = true;
@@ -45,12 +43,13 @@ class getXcontrol extends GetxController {
   }
 
   Future<void> add_Button_controller(_card) async {
-    // isAddorUpdate.value = true;
     card = _card;
-    addButton = false;
+    addButton.value = false;
     cardList.value = 0;
     isUpdateClicked = false;
     selectedcontent = {};
+    db_control.simpleListNotifier.clear();
+    dataControl.isClicked.value = true;
     update();
   }
 
@@ -58,11 +57,11 @@ class getXcontrol extends GetxController {
     favoriteVisible = false;
     isUpdateClicked = false;
     cardList.value = _cardList;
-    // addButton.value
+
     card = 0;
     percentInd = false;
-    addButton = false;
-    // isAddorUpdate.value = false;
+    addButton.value = false;
+
     update();
   }
 }

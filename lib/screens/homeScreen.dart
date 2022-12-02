@@ -3,35 +3,35 @@
 import 'package:get/state_manager.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import 'package:money_management/screens/controller.dart';
+import 'package:money_management/constant_design.dart';
+import 'package:money_management/controller.dart';
 import 'package:money_management/widgets/add_button_widget.dart';
 import 'package:money_management/widgets/bottom_navigation.dart';
 import 'package:money_management/widgets/overall_inkwell_widget.dart';
 import 'package:money_management/widgets/scroll_view_white_container.dart';
-import '../ListView_option_Category.dart';
-import '../home_widget_all.dart';
-import '../main.dart';
-import '../Add_or_Update_widget.dart';
+import '../widgets/ListView_option_Category.dart';
+import '../widgets/home_widget_all.dart';
+import '../widgets/Add_or_Update_widget.dart';
 
 class HomeScreen extends StatelessWidget {
-
   var dateRange;
 
-   getPieChartValue(_card) async {
+  getPieChartValue(_card) async {
     final entireData = await db_control.PieChartValue(
         category: _card,
         startDate: dataControl.selectedStartDate,
         endDate: dataControl.selectedEndDate,
         overall: dataControl.overall);
-    entireData.isNotEmpty ? setPie(entireData):null; 
+    entireData.isNotEmpty ? setPie(entireData) : null;
   }
+
   void setPie(entireData) {
     for (var item in entireData) {
       String SingleItem = item['category'] as String;
       int SingleAmount = item['tot_amount'] as int;
       double Total = SingleAmount.toDouble();
       dataControl.dataMap[SingleItem] = Total;
-         }
+    }
   }
 
   String? dropdownvalue;
@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
   late var monthFirstDate;
 
   Future<void> getTotalSavings() async {
-    print("mai rebuild");
+
     monthFirstDate =
         await db_control.getFirstDate(dataControl.overall, currentMonth);
     monthLastDate = await db_control.getLastDate();
@@ -61,7 +61,6 @@ class HomeScreen extends StatelessWidget {
     final List la = entireData;
     if (la.isEmpty) {
       dataControl.savingsOverall.value = 0;
-
     } else {
       for (var i = 0; i < entireData.length; i++) {
         String item = entireData[i]['category'];
@@ -146,15 +145,10 @@ class HomeScreen extends StatelessWidget {
     dataControl.update();
   }
 
-
   @override
   Widget build(BuildContext context) {
     getTotalSavings();
-    print("main rebuild");
-    // print(
-    //                       "mainnnn  ${dataControl.card} , ${dataControl.favoriteVisible}, and ${dataControl.isUpdateClicked}");
 
-    // final Size size = MediaQuery.of(context).size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Styles.primary_color,
@@ -174,44 +168,33 @@ class HomeScreen extends StatelessWidget {
                 ),
                 GetBuilder<getXcontrol>(
                   builder: (controller) {
-                    print("666 building getx main ");
                     if (controller.cardList >= 1) {
                       return list_widget(
                         toggleisUpdateClicked: toggleisUpdateClicked,
-                        card: int.parse((dataControl.cardList).toString()),
-                        percentIndicator: dataControl.percentInd,
-                        isOverall: dataControl.overall,
-                        startDate: dataControl.selectedStartDate,
-                        endDate: dataControl.selectedEndDate,
-                        favoriteVisible: dataControl.favoriteVisible,
                       );
                     } else if ((dataControl.card >= 1 ||
                             dataControl.selectedcontent.isNotEmpty) &&
                         dataControl.favoriteVisible == false) {
-                     
                       return category_cards(
                         toggleAddorUpdateClicked: toggleAddorUpdateClicked,
                       );
                     } else {
                       return home_content_all_widget(
                         toggleisUpdateClicked,
-
                       );
                     }
                   },
                 )
               ],
             ),
-            GetBuilder<getXcontrol>(
-              
-              builder: (controller) {
-                print("this 666 add in control");
-                if (controller.addButton == true) {
-                  return addButton_container(context);
-                }
-                return Container();
-              },
+
+            Obx(
+              () => (dataControl.addButton == true)
+                  ? Container(child: addButton_container(context))
+                  : Container(),
             ),
+            //   },
+            // ),
             bottomNavigation_buttons(),
           ],
         ),
@@ -219,31 +202,31 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  void toggleisUpdateClicked(Map<String, Object?> _selectedcontent,
+      {bool? delete, bool? fav}) {
 
-
-  void toggleisUpdateClicked(Map<String, Object?> _selectedcontent, {bool? delete, bool?fav}) {
-    if (fav == true || fav==false) {
+      
+    if (fav == true || fav == false) {
       dataControl.selectedcontent = {};
       dataControl.update();
-    }
-      else if (delete == true || delete==false) {
-        dataControl.incomeTot.value = 0;
+    } else if (delete == true || delete == false) {
+      dataControl.incomeTot.value = 0;
       dataControl.expenseTot.value = 0;
       dataControl.lendTot.value = 0;
       dataControl.borrowTot.value = 0;
       getTotalSavings();
       dataControl.selectedcontent = {};
       dataControl.update();
-    }
-      else
-      {
+    } else {
       dataControl.card = int.parse(_selectedcontent['category'] as String);
       dataControl.selectedcontent = _selectedcontent;
       dataControl.cardList.value = 0;
-      dataControl.addButton = false;
+      dataControl.addButton.value = false;
       dataControl.favoriteVisible = false;
+      db_control.simpleListNotifier.clear();
+      dataControl.isClicked.value = false;
       dataControl.update();
-      }
+    }
   }
 
   void toggleAddorUpdateClicked(String category) {
@@ -254,6 +237,3 @@ class HomeScreen extends StatelessWidget {
     getTotalSavings();
   }
 }
-
-
- 

@@ -1,12 +1,11 @@
 // ignore_for_file: unnecessary_null_comparison, unrelated_type_equality_checks, non_constant_identifier_names, prefer_typing_uninitialized_variables, must_be_immutable, use_key_in_widget_constructors, camel_case_types
 
 import 'package:flutter/material.dart';
-import 'package:money_management/screens/controller.dart';
+import 'package:money_management/constant_design.dart';
+import 'package:money_management/controller.dart';
 import 'package:money_management/widgets/bottom_sheet.dart';
 import 'package:sizer/sizer.dart';
 import 'package:intl/intl.dart';
-import 'main.dart';
-// import 'screens/homeScreen.dart';
 
 class home_content_all_widget extends StatelessWidget {
   home_content_all_widget(
@@ -24,10 +23,8 @@ class home_content_all_widget extends StatelessWidget {
   List dateSets = [];
   bool isOverall = dataControl.overall;
 
-
   @override
   Widget build(BuildContext context) {
-    print("building all transaction widget ${dataControl.favoriteVisible}");
     _selectedStartDate = dataControl.selectedStartDate;
     _selectedEndDate = dataControl.selectedEndDate;
     String previousDate = '';
@@ -46,8 +43,7 @@ class home_content_all_widget extends StatelessWidget {
           if (listItem.connectionState == ConnectionState.waiting) {
             return const CircularProgressIndicator();
           }
-
-          print("666 list $listItem");
+print("777 $listItem");
           int pointer = -1;
           int counter = -1;
           dateSets = [];
@@ -168,15 +164,15 @@ class home_content_all_widget extends StatelessWidget {
                                       )
                                     : Container(),
                                 Tooltip(
-                                  message:"Tap!",          
+                                  message: "Tap!",
                                   child: InkWell(
                                     onTap: () {
-                                      // print(i.toString());
+                                      dataControl.addButton.value = false;
+                                      dataControl.update();
                                       bottomSheet_edit(
                                           context, i, toggleisUpdateClicked);
                                     },
                                     child: Row(
-                                      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
@@ -213,7 +209,6 @@ class home_content_all_widget extends StatelessWidget {
                                                                 color: Styles
                                                                     .custom_borrow_pink),
                                                       ),
-                                                    
                                       ],
                                     ),
                                   ),

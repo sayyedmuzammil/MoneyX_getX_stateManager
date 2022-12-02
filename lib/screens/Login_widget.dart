@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:money_management/main.dart';
+import 'package:money_management/constant_design.dart';
 
 class widget_screen extends StatelessWidget {
   const widget_screen({Key? key}) : super(key: key);
@@ -14,8 +14,7 @@ class widget_screen extends StatelessWidget {
 }
 
 class login_widget extends StatelessWidget {
-  // var height;
-//  login_widget();
+
 
   @override
   Widget build(BuildContext context) {

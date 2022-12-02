@@ -1,8 +1,8 @@
  import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:money_management/Custom_icons.dart';
-import 'package:money_management/main.dart';
-import 'package:money_management/screens/controller.dart';
+import 'package:money_management/constant_design.dart';
+import 'package:money_management/controller.dart';
 import 'package:money_management/widgets/menu_button_widget.dart';
 import 'package:money_management/widgets/scroll_view_white_container.dart';
 import 'package:sizer/sizer.dart';
@@ -17,8 +17,7 @@ Stack Overall_inkwell_main(BuildContext context) {
             message: "Tap here Switch to Overall",
             child: InkWell(
               onTap: () {
-                /*   setState(() { */
-                // print("this is main gesture");
+
                 dataControl.selectedcontent={}; 
                 dataControl.currentIndex.value = null;
                 main_widget_controller.currentMonth = 0;
@@ -27,11 +26,8 @@ Stack Overall_inkwell_main(BuildContext context) {
                 dataControl.cardList.value = 0;
                 dataControl.isUpdateClicked = false;
                 dataControl.favoriteVisible=false;
-                // dataControl.isAddorUpdate.value = false;
                 dataControl.selectedStartDate = null;
-                // dataControl.update(); 
                 main_widget_controller.getTotalSavings();
-                /*   }); */
               },
               child: Container(
                 width: 80.w,
@@ -113,14 +109,11 @@ Stack Overall_inkwell_main(BuildContext context) {
                 height: 35,
                 child: IconButton(
                   onPressed: () {
-                    // dataControl.card = 0;
-                    /*  setState(() { */
-                    dataControl.addButton = false;
+                  
+                    dataControl.addButton.value = false;
                     dataControl.overall = false;
-                    // dataControl.isAddorUpdate.value = true;
                     dataControl.isUpdateClicked = false;
                     dataControl.card = 0;
-                    // print( dataControl.card);
                     dataControl.currentIndex.value = null;
                     dataControl.cardList.value = 0;
                     dataControl.overall = false;
@@ -130,13 +123,10 @@ Stack Overall_inkwell_main(BuildContext context) {
                     dataControl.currentIndex.value = null;
                     dataControl.selectedcontent = {};
                     main_widget_controller.currentMonth = DateTime.now().month;
-                    dataControl.DisplayDate.value =
-                        '''$dataControl.startText - ${dataControl.endText}''';
                     main_widget_controller.dateRange = null;
                     dataControl.selectedStartDate = null;
                     main_widget_controller.getTotalSavings();
-                    // dataControl.update();
-                    /*    }); */
+                   
                   },
                   icon: const Icon(
                     Icons.home_outlined,

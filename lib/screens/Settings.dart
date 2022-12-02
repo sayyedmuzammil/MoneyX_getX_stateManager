@@ -2,51 +2,49 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:money_management/main.dart';
+import 'package:money_management/constant_design.dart';
 
 class SettingsScreen extends StatelessWidget {
-   SettingsScreen({ Key? key }) : super(key: key);
+  SettingsScreen({Key? key}) : super(key: key);
   // var date = new DateTime.now();
   // var prevMonth = new DateTime(date, date.month - 1, date);
-  // var privacy = 
-  
-  var myMail='SayyedMuzammil9383@gmail.com';
-var pastMonth = (DateFormat('yyyy MMM dd')
-        .format(DateTime.now().subtract(const Duration(days: 30))));
+  // var privacy =
+
+  var myMail = 'SayyedMuzammil9383@gmail.com';
+  var pastMonth = (DateFormat('yyyy MMM dd')
+      .format(DateTime.now().subtract(const Duration(days: 30))));
   @override
   Widget build(BuildContext context) {
-    print("settings widget");
     return Scaffold(
-      appBar:  AppBar(title: const Text("Settings"),centerTitle: true,),
-      body:            ListView(
-       children: [
-            Container(
-                margin:const EdgeInsets.only(right: 9), 
-                child:  Column(
-                  
-                  crossAxisAlignment: CrossAxisAlignment.start,
+      appBar: AppBar(
+        title: const Text("Settings"),
+        centerTitle: true,
+      ),
+      body: ListView(
+        children: [
+          Container(
+            margin: const EdgeInsets.only(right: 9),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ExpansionTile(
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  title: Text(
+                    'TERMS AND CONDITIONS OF USE',
+                    style:
+                        Styles.dropHeadStyle.copyWith(color: Colors.grey[700]),
+                    textAlign: TextAlign.start,
+                  ),
                   children: [
-                    
-                    ExpansionTile(
-                      controlAffinity: ListTileControlAffinity.trailing,
-      
-                      title: Text( 
-                        'TERMS AND CONDITIONS OF USE',
-                        style:Styles.dropHeadStyle.copyWith(color: Colors.grey[700]),
-                        textAlign: TextAlign.start,
-                      ),
-      
-                      children: [
-                        InkWell(
-                          onTap: (){},
-                          child: Container(
-                          
-                            margin:const EdgeInsets.only(
-                              left: 15,
-                            ),
-                            child: InkWell(
-                              child: Text(
-                                '''    By downloading or using the app, these terms will automatically apply to you - you should make sure therefore that you read them carefully before using the app. You're not allowed to copy or modify the app, any part of the app, or our trademarks in any way. You're not allowed to attempt to extract the source code of the app, and you also shouldn't try to translate the app into other languages or make derivative versions. The app itself, and all the trademarks, copyright, database rights, and other intellectual property rights related to it, still belong to Sayyed Muzammil.
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        margin: const EdgeInsets.only(
+                          left: 15,
+                        ),
+                        child: InkWell(
+                          child: Text(
+                            '''    By downloading or using the app, these terms will automatically apply to you - you should make sure therefore that you read them carefully before using the app. You're not allowed to copy or modify the app, any part of the app, or our trademarks in any way. You're not allowed to attempt to extract the source code of the app, and you also shouldn't try to translate the app into other languages or make derivative versions. The app itself, and all the trademarks, copyright, database rights, and other intellectual property rights related to it, still belong to Sayyed Muzammil.
                             
                             Sayyed Muzammil is committed to ensuring that the app is as useful and efficient as possible. For that reason, we reserve the right to make changes to the app or to charge for its services, at any time and for any reason. We will never charge you for the app or its services without making it very clear to you exactly what you're paying for.
                             
@@ -59,87 +57,85 @@ var pastMonth = (DateFormat('yyyy MMM dd')
                             With respect to Sayyed Muzammil's responsibility for your use of the app, when you're using the app, it's important to bear in mind that although we Pendeavor to ensure that it is updated and correct at all times, we do rely on third parties to provide information to us so that we can make it available to you. Sayyed Muzammil accepts no liability for any loss, direct or indirect, you experience as a result of relying wholly on this functionality of the app.
                             
                             At some point, we may wish to update the app.. The app is currently available on Android. - the requirements for the systems(and for Aany additional systems we decide to extend the availability of the app to) may change, and you'll need to download the updates if you want to keep using the app. Sayyed Muzammil does not promise that it will always update the app so that it is relevant to you and/or works with the Android version that you have installed on your device. However, you promise to always accept updates to the application when offered to you, We may also wish to stop providing the app, and may terminate use of it at any time without giving notice of termination to you. Unless we tell you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must stop using the app, and (if needed) delete it from your device.''',
-                               
-                                                  
-                                strutStyle: Styles.paragraphStructStyle, 
-                              style: Styles.BodyStylePara.copyWith(color: Colors.grey[600]),
-                               
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                     ExpansionTile(
-                      controlAffinity: ListTileControlAffinity.trailing,
-                      title: Text(
-                        'Changes to This Terms and Conditions',
-                        style:Styles.dropHeadStyle.copyWith(color: Colors.grey[700]),
-                
-                      ),
-      
-                      children: [
-                        InkWell(
-                          onTap: (){},
-                          child: Container(
-                            margin:const EdgeInsets.only(
-                              left: 15,
-                            ),
-                            child: Text('''I may update our Terms and Conditions from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Terms and Conditions on this page.
-                        These terms and conditions are effective as of $pastMonth.''',
-                          strutStyle: Styles.paragraphStructStyle, 
-                            style: Styles.BodyStylePara.copyWith(color: Colors.grey[600]),
-                            
-                            ),
-                          ),
-                        ),
-                      ],
-                    ), 
-                   ExpansionTile(
-                    controlAffinity: ListTileControlAffinity.trailing,
-                    title: Text(
-                    'Modification',
-                      style:Styles.dropHeadStyle.copyWith(color: Colors.grey[700]),
-                      textAlign: TextAlign.start,
-                    ),
-      
-                    children: [
-                      InkWell(
-                        onTap: (){},
-                        child: Container(
-                          margin: const EdgeInsets.only(
-                            left: 15,
-                          ),
-                          child: Text(
-                            'I may reserves the right at any time to add, modify or discontinue, temporarily or permanently, the Services (or any part thereof) with or without cause. I may shall not be liable for any such addition, modification, suspension or discontinuation of the Services.',
-                            
-                                         strutStyle: Styles.paragraphStructStyle, 
-                            style: Styles.BodyStylePara.copyWith(color: Colors.grey[600]),
-                                           
+                            strutStyle: Styles.paragraphStructStyle,
+                            style: Styles.BodyStylePara.copyWith(
+                                color: Colors.grey[600]),
                           ),
                         ),
                       ),
-                    ],
+                    ),
+                  ],
+                ),
+                ExpansionTile(
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  title: Text(
+                    'Changes to This Terms and Conditions',
+                    style:
+                        Styles.dropHeadStyle.copyWith(color: Colors.grey[700]),
                   ),
-                   ExpansionTile(
-                    controlAffinity: ListTileControlAffinity.trailing,
-                    title: Text(
-                      'Privacy Policy'.toUpperCase(),
-                      style:Styles.dropHeadStyle.copyWith(color: Colors.grey[700]),
-                      textAlign: TextAlign.start,
+                  children: [
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        margin: const EdgeInsets.only(
+                          left: 15,
+                        ),
+                        child: Text(
+                          '''I may update our Terms and Conditions from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Terms and Conditions on this page.
+                        These terms and conditions are effective as of $pastMonth.''',
+                          strutStyle: Styles.paragraphStructStyle,
+                          style: Styles.BodyStylePara.copyWith(
+                              color: Colors.grey[600]),
+                        ),
+                      ),
                     ),
-      
-                    children: [
-                      InkWell(
-                        onTap: (){},
-                        child: Container(
-                          margin:const EdgeInsets.only(
-                            left: 15,
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start, 
-                            children: [
-                              Text('''Sayyed Muzammil built the MoneyX app as a Free app. This SERVICE is provided by Sayyed Muzammil at no cost and is intended for use as is.
+                  ],
+                ),
+                ExpansionTile(
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  title: Text(
+                    'Modification',
+                    style:
+                        Styles.dropHeadStyle.copyWith(color: Colors.grey[700]),
+                    textAlign: TextAlign.start,
+                  ),
+                  children: [
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        margin: const EdgeInsets.only(
+                          left: 15,
+                        ),
+                        child: Text(
+                          'I may reserves the right at any time to add, modify or discontinue, temporarily or permanently, the Services (or any part thereof) with or without cause. I may shall not be liable for any such addition, modification, suspension or discontinuation of the Services.',
+                          strutStyle: Styles.paragraphStructStyle,
+                          style: Styles.BodyStylePara.copyWith(
+                              color: Colors.grey[600]),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                ExpansionTile(
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  title: Text(
+                    'Privacy Policy'.toUpperCase(),
+                    style:
+                        Styles.dropHeadStyle.copyWith(color: Colors.grey[700]),
+                    textAlign: TextAlign.start,
+                  ),
+                  children: [
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        margin: const EdgeInsets.only(
+                          left: 15,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '''Sayyed Muzammil built the MoneyX app as a Free app. This SERVICE is provided by Sayyed Muzammil at no cost and is intended for use as is.
                       
                       This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.
                       
@@ -147,45 +143,63 @@ var pastMonth = (DateFormat('yyyy MMM dd')
                       
                       \t\t\t The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions,
                       which are accessible at MoneyX unless A otherwise defined in this Privacy Policy. 
-                      ''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[600]),
-                                
-                                ),
-                                      Text('''Information Collection and Use''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[700], fontWeight: FontWeight.bold),
-                                
-                                
-                                ),
-                                      Text('''\t\t\t For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information. The information that I request will be retained on your device and is not collected by me in any way.
-                      ''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[600]),
-                                
-                                ),
-                            Text('''Log Data ''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[700], fontWeight: FontWeight.bold),
-                                
-                                ),
-                          
-                                      Text('''\t\t\t I want to inform you that whenever you use my Service, in a case of an error in the app I collect data and information (through third-party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol ("IP") address, device name, operating system version, the configuration of the app when utilizing my Service, the time and date of your use of the Service, and other statistics.
-                      ''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[600]),
-                                
-                                ),
-                                  Text('''Cookies''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[700], fontWeight: FontWeight.bold),
-                                
-                                ),
-                                      Text('''\t\t\t Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.
+                      ''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[600]),
+                            ),
+                            Text(
+                              '''Information Collection and Use''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[700],
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              '''\t\t\t For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information. The information that I request will be retained on your device and is not collected by me in any way.
+                      ''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[600]),
+                            ),
+                            Text(
+                              '''Log Data ''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[700],
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              '''\t\t\t I want to inform you that whenever you use my Service, in a case of an error in the app I collect data and information (through third-party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol ("IP") address, device name, operating system version, the configuration of the app when utilizing my Service, the time and date of your use of the Service, and other statistics.
+                      ''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[600]),
+                            ),
+                            Text(
+                              '''Cookies''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[700],
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              '''\t\t\t Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.
                       This Service does not use these "cookies" explicitly. However, the app may use third-party code and libraries that use "cookies" to collect information and improve their services. You have the option to either accept or refuse these cookies and know when a cookie is being sent to your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service.
-                      ''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[600]),
-                                
-                                ),
-                       Text('''Service Providers''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[700], fontWeight: FontWeight.bold),
-                                
-                                ),
-                                      Text('''I may employ third-party companies and individuals due to the following reasons:
+                      ''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[600]),
+                            ),
+                            Text(
+                              '''Service Providers''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[700],
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              '''I may employ third-party companies and individuals due to the following reasons:
                       
                       . To facilitate our Service;
                       . To provide the Service on our behalf;
@@ -193,92 +207,116 @@ var pastMonth = (DateFormat('yyyy MMM dd')
                       . To assist us in analyzing how our Service is used.
                       
                       I want to inform users of this Service that these third parties have access to their Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.
-                      ''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[600]),
-                                
-                                ),
-                                Text('''Security''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[700], fontWeight: FontWeight.bold),
-                                
-                                ),
-                                      Text('''I value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and I cannot guarantee its absolute security.
-                      ''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[600]),
-                                
-                                ),
-                                Text('''Links to Other Sites''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[700], fontWeight: FontWeight.bold),
-                                
-                                ),
-                                      Text('''This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by me. Therefore, I strongly advise you to review the Privacy Policy of these websites. I have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
-                      ''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[600]),
-                                
-                                ),
-                                Text('''Children's Privacy''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[700], fontWeight: FontWeight.bold),
-                                
-                                ),
-                                      Text('''These Services do not address anyone under the age of 13. I do not knowingly collect personally identifiable information from children under 13. years of age. In the case I discover that a child under 13 has provided me with personal information, I immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact me so that I will be able to do the necessary actions.
-                      ''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[600]),
-                                
-                                ),
-                                Text('''Changes to This Privacy Policy''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[700], fontWeight: FontWeight.bold),
-                                
-                                ),
-                                      Text('''I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page.
-                      This policy is effective as of $pastMonth
-                      ''',   strutStyle: Styles.paragraphStructStyle, 
-                                style: Styles.BodyStylePara.copyWith(color: Colors.grey[600]),
-                                
-                                ),
-                                                    ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                   ExpansionTile(
-                    controlAffinity: ListTileControlAffinity.trailing,
-                    title: Text(
-                      'Contact Us',
-                     style:Styles.dropHeadStyle.copyWith(color: Colors.grey[700]),
-                      textAlign: TextAlign.start,
-                    ),
-                    children: [
-                      InkWell(
-                        onTap: (){},
-                        child: Container(
-                          margin:const EdgeInsets.only(
-                            left: 15,
-                          ),
-                          child: Text(
-                            "If you have any questions or suggestions about my Terms and Conditions & privacy policies, do not hesitate to contact me at ", 
-                                      strutStyle: Styles.paragraphStructStyle, 
-                            style: Styles.BodyStylePara.copyWith(color: Colors.grey[600]),
-                          ),
-                        ),
-                      ),
-                      InkWell(
-                        onTap: (){},
-                        child: Container(
-                          margin: const EdgeInsets.only(left: 15),
-                          alignment: Alignment.topLeft,
-                          child: Text(
-                              myMail, strutStyle: Styles.paragraphStructStyle, 
-                            style: Styles.BodyStylePara.copyWith(color: Colors.red[600]),
-                                       
+                      ''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[600]),
                             ),
+                            Text(
+                              '''Security''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[700],
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              '''I value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and I cannot guarantee its absolute security.
+                      ''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[600]),
+                            ),
+                            Text(
+                              '''Links to Other Sites''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[700],
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              '''This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by me. Therefore, I strongly advise you to review the Privacy Policy of these websites. I have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
+                      ''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[600]),
+                            ),
+                            Text(
+                              '''Children's Privacy''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[700],
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              '''These Services do not address anyone under the age of 13. I do not knowingly collect personally identifiable information from children under 13. years of age. In the case I discover that a child under 13 has provided me with personal information, I immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact me so that I will be able to do the necessary actions.
+                      ''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[600]),
+                            ),
+                            Text(
+                              '''Changes to This Privacy Policy''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[700],
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              '''I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page.
+                      This policy is effective as of $pastMonth
+                      ''',
+                              strutStyle: Styles.paragraphStructStyle,
+                              style: Styles.BodyStylePara.copyWith(
+                                  color: Colors.grey[600]),
+                            ),
+                          ],
                         ),
-                      ),       
-                    ],
-                  ),
+                      ),
+                    ),
                   ],
                 ),
-              ),
-            ],
+                ExpansionTile(
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  title: Text(
+                    'Contact Us',
+                    style:
+                        Styles.dropHeadStyle.copyWith(color: Colors.grey[700]),
+                    textAlign: TextAlign.start,
+                  ),
+                  children: [
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        margin: const EdgeInsets.only(
+                          left: 15,
+                        ),
+                        child: Text(
+                          "If you have any questions or suggestions about my Terms and Conditions & privacy policies, do not hesitate to contact me at ",
+                          strutStyle: Styles.paragraphStructStyle,
+                          style: Styles.BodyStylePara.copyWith(
+                              color: Colors.grey[600]),
+                        ),
+                      ),
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 15),
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          myMail,
+                          strutStyle: Styles.paragraphStructStyle,
+                          style: Styles.BodyStylePara.copyWith(
+                              color: Colors.red[600]),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

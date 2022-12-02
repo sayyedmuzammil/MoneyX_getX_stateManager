@@ -1,13 +1,13 @@
 // import 'package:flutter/cupertino.dart';
-// ignore_for_file: sized_box_for_whitespace, non_constant_identifier_names, deprecated_member_use
+// ignore_for_file: sized_box_for_whitespace, non_constant_identifier_names, deprecated_member_use, unrelated_type_equality_checks
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:money_management/constant_design.dart';
 import 'package:money_management/db_functions/data_model.dart';
 import 'package:intl/intl.dart';
-import 'package:money_management/screens/controller.dart';
+import 'package:money_management/controller.dart';
 import 'package:sizer/sizer.dart';
-import 'main.dart';
 
 class category_cards extends StatelessWidget {
   category_cards({
@@ -34,9 +34,6 @@ class category_cards extends StatelessWidget {
   final _globalKey = GlobalKey<FormState>();
 
   void initState() {
-    // dataControl.isClicked=true;
-    // print("vvvv ${dataControl.card} ");
-
     selectedcontent.isNotEmpty
         ? {
             _categoryController.text = selectedcontent['item'].toString(),
@@ -47,21 +44,22 @@ class category_cards extends StatelessWidget {
             _remarkController.text = selectedcontent['remark'].toString(),
           }
         : dataControl.selectedDate = DateTime.now();
-      // dataControl.update();
+    // dataControl.update();
   }
 
   void clickItem() {
-db_control.simpleListNotifier.clear();
+    db_control.simpleListNotifier.clear();
+    db_control.simpleListNotifier.isEmpty
+        ? db_control.ListForTextForm(dataControl.card)
+        : null;
+
     _categoryController.text.length > 1
         ? dataControl.isClicked.value = false
         : dataControl.isClicked.value = true;
-
-    print("vv ${dataControl.isClicked}");
   }
 
   @override //this widget is add student
   Widget build(BuildContext context) {
-    print("building add or update");
     initState();
     _dateController.text =
         DateFormat("MMM dd").format(dataControl.selectedDate);
@@ -99,7 +97,6 @@ db_control.simpleListNotifier.clear();
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 30),
                     child: Column(
-                      // mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const SizedBox(
@@ -161,10 +158,12 @@ db_control.simpleListNotifier.clear();
                                         Card(
                                           elevation: 0,
                                           child: TextFormField(
-                                            onChanged: (_) {  
-                                              
-                                              dataControl.isClicked.value = true;
-                                     
+                                            onTap: () {
+                                              clickItem();
+                                            },
+                                            onChanged: (_) {
+                                              // dataControl.isClicked.value = true;
+
                                               clickItem();
                                               // dataControl.update();
                                             },
@@ -189,10 +188,10 @@ db_control.simpleListNotifier.clear();
                                                 top: 20,
                                               ),
                                               hintText: 'Enter the Item',
-                                              hintStyle: Styles.normal17.copyWith(
-                                                  color: Colors.grey,
-                                                  fontSize:
-                                                      15), /*  hintStyle: Styles.Normal15 */
+                                              hintStyle: Styles.normal17
+                                                  .copyWith(
+                                                      color: Colors.grey,
+                                                      fontSize: 15),
                                             ),
                                             validator: (value) {
                                               if (value == null ||
@@ -284,12 +283,11 @@ db_control.simpleListNotifier.clear();
                                         // // DateTime start=new DateTime(2020, 02, 04);
                                         // // DateTime end=new DateTime(2020,03,04);
                                         // // var diff=end.difference(start);
-                                        // // print("difference $diff");
-                                        //         // print("start $_startDate end date $_endDate");
+                                  
                                         //         // var diff= DateTime.now().difference(DateFormat('yyyy-MM-dd').format(args.value.startDate).toString()).inDays
-                                        //         // print("{$_endDate - $_startDate}");
+                                                
                                         //                                          final dynamic value = args.value;
-                                        //                                          print("value      $value");
+                                      
                                         //                                         //  now=value;
                                         //                                        },
                                         //                                             monthCellStyle: DateRangePickerMonthCellStyle(
@@ -392,7 +390,7 @@ db_control.simpleListNotifier.clear();
                                             toggleAddorUpdateClicked!(
                                                 dataControl.card.toString());
                                             Scaffold.of(context)
-                                                .showSnackBar(snackBarAdd);     
+                                                .showSnackBar(snackBarAdd);
                                           }
                                         }
                                       : () {
@@ -419,15 +417,11 @@ db_control.simpleListNotifier.clear();
                                 )
                               ],
                             ),
-                            Obx(()=>
-                           Container(child:
-                                (dataControl.isClicked ==true) ?//its for listing previus items
-                                 items_list_after_click()
-                                 :Container()
-                           )
-                            // GetBuilder<getXcontrol>(builder: (controller) {
-                            ),
-
+                            Obx(() => Container(
+                                child: (dataControl.isClicked == true)
+                                    ? //its for listing previus items
+                                    items_list_after_click()
+                                    : Container())),
                           ],
                         ),
                         const SizedBox(
@@ -451,47 +445,36 @@ db_control.simpleListNotifier.clear();
   }
 
   Container items_list_after_click() {
-    db_control.simpleListNotifier.isEmpty?
-     db_control.ListForTextForm(dataControl.card):null;
-    print("888  building getx builder");
-    return
-    db_control.simpleListNotifier.isNotEmpty?
-     Container(
-      color: Colors.white.withOpacity(.8),
-      padding: const EdgeInsets.only(left: 20),
-      margin: const EdgeInsets.fromLTRB(35, 50, 30, 0),
-      child: Container(
-        height: 230,
-        width: 350,
-        child: Obx(() => ListView.builder(
-                                        itemCount: db_control.simpleListNotifier.length,
-                                        itemBuilder: (ctx, index) {
-                                          MainAxisSize.min;
-                                          final singleItem = db_control.simpleListNotifier[index];
-                                          return ListTile(
-                                              isThreeLine: false,
-                                              title: Text(
-                                                '${singleItem.item}',
-                                                style: Styles.normal17,
-                                              ),
-                                              selected: true,
-                                              onTap: () {
-                                                _categoryController.text =
-                                                    singleItem.item.toString();
-                                                dataControl.isClicked.value = false;
-                                                
-                                                // dataControl.update();
-                                              });
-                                        }
-                                        )
-                                        )
-                                        )
-    
-              
-              ):Container();
-            
-   
-    
+    db_control.simpleListNotifier.isEmpty
+        ? db_control.ListForTextForm(dataControl.card)
+        : null;
+    return db_control.simpleListNotifier.isNotEmpty
+        ? Container(
+            color: Colors.white.withOpacity(.8),
+            padding: const EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.fromLTRB(35, 50, 30, 0),
+            child: Container(
+                height: 230,
+                width: 350,
+                child: Obx(() => ListView.builder(
+                    itemCount: db_control.simpleListNotifier.length,
+                    itemBuilder: (ctx, index) {
+                      MainAxisSize.min;
+                      final singleItem = db_control.simpleListNotifier[index];
+                      return ListTile(
+                          isThreeLine: false,
+                          title: Text(
+                            '${singleItem.item}',
+                            style: Styles.normal17,
+                          ),
+                          selected: true,
+                          onTap: () {
+                            _categoryController.text =
+                                singleItem.item.toString();
+                            dataControl.isClicked.value = false;
+                          });
+                    }))))
+        : Container();
   }
 
   Future<void> onAddorUpdateButton({id}) async {

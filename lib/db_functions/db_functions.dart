@@ -2,15 +2,15 @@
 
 import 'package:get/get.dart';
 import 'package:money_management/db_functions/listModel.dart';
-import 'package:money_management/screens/controller.dart';
+import 'package:money_management/controller.dart';
 import 'package:sqflite/sqflite.dart';
 import 'data_model.dart';
 
 class Controller extends GetxController {
   late Database _db1;
 
-    List<ListModel> simpleListNotifier =<ListModel>[].obs;
-  
+  List<ListModel> simpleListNotifier = <ListModel>[].obs;
+
   Future<void> openDB() async {
     _db1 = await openDatabase('money.db', version: 1,
         onCreate: (Database db, int version) async {
@@ -107,9 +107,6 @@ class Controller extends GetxController {
   }
 
   Future<dynamic> ListForTextForm(_category) async {
-    // dataControl.simpleListNotifier.clear();
-    print("vvvv am here $_category");
-
     String currentMonth = DateTime.now().month.toString();
 
     final values = await _db1.rawQuery(
@@ -119,7 +116,6 @@ class Controller extends GetxController {
         final Single_item = ListModel.fromMap(map);
         simpleListNotifier.add(Single_item);
       });
-      
     }
   }
 
